@@ -1,0 +1,19 @@
+django-admin # all functions
+
+django-admin startproject password_generator# create a new project "password_generator"
+
+python manage.py startapp generator #Add an App 'generator' to a Project
+
+python manage.py runserver # Starting the server
+
+python manage.py makemigrations #Creating Migrations
+python manage.py migrate #Migrate the Database
+python manage.py createsuperuser #Creating a Super User for the Admin Panel
+python manage.py changepassword #Change Any User's Password
+python manage.py collectstatic #Collecting Static Files Into One Folder
+
+python manage.py help #list of commands
+
+
+
+
