@@ -1,3 +1,8 @@
+Долучитись до ІТ-індустрії, 
+покращувати свої навички програмування та розвиватись
+як спеціаліст у цифровому сегменті.
+Sharpen my programming skills and developing as a specialist in the IT-segment.
+
 django-admin # all functions
 
 django-admin startproject password_generator# create a new project "password_generator"
@@ -9,14 +14,15 @@ python manage.py runserver # Starting the server
 python manage.py makemigrations #Creating Migrations
 python manage.py migrate #Migrate the Database
 python manage.py createsuperuser #Creating a Super User for the Admin Panel
-python manage.py changepassword #Change Any User's Password
+python manage.py changepassword Stas#Change Any user`s Password
 python manage.py collectstatic #Collecting Static Files Into One Folder
-
+django123
 python manage.py help #list of commands
 
 "# created by virtualenv automatically" in .gitignore
 *"
 
-
+https://github.com/zappycode/django3-personal-portfolio
+https://t.me/OMET_tour_bot
 
 

@@ -1,0 +1,32 @@
+{% extends 'portfolio/base.html' %}
+
+<!--we just transfer main elements from 'base.html'-->
+{% block content %}
+
+
+<h1>Some info about stacks I used in portfolio's works</h1>
+
+<!-- we display the set by "count|pluralize "-->
+<h2>Stas has written {{ articles.count }} article{{ articles.count|pluralize }}</h2>
+
+
+
+{% for article in articles %}
+
+<!-- such construction make a title callable to name 'detail'-->
+<a href="{% url 'blog:detail' article.id %}"><h2>{{ forloop.counter }}. {{ article.title }}</h2></a>
+
+<p>{{ article.description|safe|truncatechars:250 }}</p>
+<!-- {{ article.date|date:"M d Y"|upper }} / "truncatechars:250" - set the limit of shown /\
+ "safe" or "striptags" make tags working in admin panel and browser-->
+
+<img src="{{ article.image.url }}">
+
+{% if article.url %}
+<a href="{{ article.url }}">Link</a>
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}
+

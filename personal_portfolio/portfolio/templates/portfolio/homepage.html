@@ -1,0 +1,34 @@
+{% extends 'portfolio/base.html' %}
+
+<!--we just transfer main elements from 'base.html'-->
+{% block content %}
+<!--the 'block content' name must be same as in 'base'-->
+    <h1>Stas` portfolio</h1>
+<!--'{' with '%' set the code dependence| '{{' if work with dictionary -->
+
+{% load static %}
+
+<!--this sentence make link for blog|articles page -->
+<a href="{% url 'blog:all_articles' %}"> Blog </a>
+<br>
+
+<a href="{% static 'portfolio/CV Mostovskykh Stanislav IT.pdf' %}"> Resume </a> <!--for connection file to our site -->
+<br>
+
+<img src="{% static 'portfolio/mine yacht.jpeg' %}">
+
+{% for project in projects %}
+
+<h2>{{ project.title }}</h2> <!--add 'title' atrribute -->
+<p>{{ project.description }}</p>
+
+<img src="{{ project.image.url}}" > <!--height=40 width=40 -->
+
+{% if project.url %} <!--if url exists share link -->
+<a href="{{ project.url }}">Link</a>
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends 'portfolio/base.html' %}
+
+<!--we just transfer main elements from 'base.html'-->
+{% block content %}
+
+<h1>{{ article.title }}</h1>
+
+<h2></h2>
+<!-- {{ article.date|date:"F jS Y" }}-->
+
+{{ article.description|safe }}
+
+{% endblock %}

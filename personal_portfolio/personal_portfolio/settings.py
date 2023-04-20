@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
+    'portfolio',
 ]
 
 MIDDLEWARE = [
@@ -70,13 +72,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'personal_portfolio.wsgi.application'
 
 
-# Database
+# Database - here i can set sql/ noSql data
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3', # all data saved by this path (os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
 
@@ -115,7 +117,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'static/' # if i change it on 'hello/'-need to print it in site url '/hello/portfolio/mine yacht/
+
+MEDIA_URL = 'media/' # make new directory for images
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
