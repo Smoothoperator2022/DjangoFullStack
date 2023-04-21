@@ -1,34 +1,40 @@
-{% extends 'portfolio/base.html' %}
-
-<!--we just transfer main elements from 'base.html'-->
-{% block content %}
-<!--the 'block content' name must be same as in 'base'-->
-    <h1>Stas` portfolio</h1>
-<!--'{' with '%' set the code dependence| '{{' if work with dictionary -->
+{% extends "portfolio/base.html" %}
 
 {% load static %}
 
-<!--this sentence make link for blog|articles page -->
-<a href="{% url 'blog:all_articles' %}"> Blog </a>
-<br>
+{% block content %}
 
-<a href="{% static 'portfolio/CV Mostovskykh Stanislav IT.pdf' %}"> Resume </a> <!--for connection file to our site -->
-<br>
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'portfolio/portfolio_photo.jpg' %}" class="img-fluid">
+  </div>
+</div>
 
-<img src="{% static 'portfolio/mine yacht.jpeg' %}">
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h1 id="hometext" class="font-weight-bold">I turn my will into real</h1>
+  </div>
+</div>
 
-{% for project in projects %}
+<h2 class="mt-5">Portfolio</h2>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
 
-<h2>{{ project.title }}</h2> <!--add 'title' atrribute -->
-<p>{{ project.description }}</p>
+    {% if project.url %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
 
-<img src="{{ project.image.url}}" > <!--height=40 width=40 -->
+    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
 
-{% if project.url %} <!--if url exists share link -->
-<a href="{{ project.url }}">Link</a>
-{% endif %}
-
-{% endfor %}
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
-
